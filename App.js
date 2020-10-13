@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import CalculationModule from './Calculation';
 import {
   SafeAreaView,
   StyleSheet,
@@ -25,6 +26,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
+	
+	CalculationModule.addNumber(10, 4).then((result) => console.log(result))
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -39,6 +42,9 @@ const App: () => React$Node = () => {
             </View>
           )}
           <View style={styles.body}>
+		  <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle}>Data From Module Calculation</Text>
+            </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
@@ -52,6 +58,7 @@ const App: () => React$Node = () => {
                 <ReloadInstructions />
               </Text>
             </View>
+
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Debug</Text>
               <Text style={styles.sectionDescription}>
